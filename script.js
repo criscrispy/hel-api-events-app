@@ -33,17 +33,17 @@ async function linkedEvents() {
         // ************************************************
         let imgURL;
         if (imgArray.length) {
-            img = imgArray[0].url;
+            imgURL = imgArray[0].url;
         } else {
-            imgURL = 'https://someurl.com';
+            imgURL = 'https://placekitten.com/400/400';
         }
 
         // Handling info_url error
-        let infoURLRedirect;
+        let urlFI;
         if (infoURL) {
-            infoURLFI = info.info_url.fi
+            urlFI = infoURL.fi
         } else {
-            infoURLRedirect = "https://www.hel.fi/helsinki/fi"
+            urlFI = "https://www.hel.fi/helsinki/fi"
         }
 
 
@@ -52,13 +52,15 @@ async function linkedEvents() {
         //************************************************
 
         const card = document.createElement("div");
-        card.classList.add("card");
-        card.classList.add("col-12");
-        card.classList.add("col-md-6");
-        card.classList.add("col-lg-4")
-        card.classList.add("col-xl-3");
-        card.classList.add("m-2");
-        card.classList.add("align-self-center");
+        card.classList.add(
+            "card",
+            "col-12",
+            "col-md-6",
+            "col-lg-4",
+            "col-xl-3",
+            "m-2",
+            "align-self-center"
+        );
 
 
         // ************************************************
@@ -66,7 +68,7 @@ async function linkedEvents() {
         // ************************************************
         const cardImg = document.createElement("img");
         setAttributes(cardImg, {
-            src: img,
+            src: imgURL,
             alt: `event_${index}`,
         });
         cardImg.classList.add("card-img-top");
@@ -121,11 +123,10 @@ async function linkedEvents() {
 
         // create a tags with button for more info
         const moreInfoBtn = document.createElement("a");
-        moreInfoBtn.classList.add("btn");
-        moreInfoBtn.classList.add("btn-primary");
-        moreInfoBtn.innerText = "More info"
+        moreInfoBtn.classList.add("btn", "btn-primary");
+        moreInfoBtn.innerText = "More info";
         setAttributes(moreInfoBtn, {
-            href: infoURLFI,
+            href: urlFI,
             target: "_blank",
         });
 
