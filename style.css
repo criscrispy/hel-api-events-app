@@ -10,20 +10,22 @@ div.card {
 	background-color: unset;
 	background-color: rgba(255, 255, 255, 0.8);
 	box-shadow: 0 1px 1px 2px rgba(0, 0, 0, 0.2);
-	transition: box-shadow .2s;
+	-ms-transform: scale(1); /* IE 9 */
+	-webkit-transform: scale(1); /* Safari 3-8 */
+	transform: scale(1);
+	transition: all .3s ease-in-out;
 }
 
 div.card:hover {
-	box-shadow: 0 2px 2px 5px rgba(0, 0, 0, 0.3);
+	box-shadow: 0 1px 1px 5px rgba(0, 0, 0, 0.3);
+	-ms-transform: scale(1.01); /* IE 9 */
+	-webkit-transform: scale(1.01); /* Safari 3-8 */
+	transform: scale(1.01);
+	transition: all .3s ease-in-out;
 }
 
 /* div.card-body p  */
 .shorten-text {
 	max-height: 4rem;
 	overflow: auto;
-	/* word-wrap: break-word; */
 }
-
-/* .load-more {
-
-} */
