@@ -12,7 +12,7 @@ function setAttributes(element, attributes) {
 
 // Retrieving data for weekly events ...
 async function linkedEvents() {
-	const eventsDatabase = await axios.get('https://api.hel.fi/linkedevents/v1/event/?start=now&end=2020-09-22');
+	const eventsDatabase = await axios.get('https://api.hel.fi/linkedevents/v1/event/?start=now&end=2020-12-31');
 
 	const eventsMain = eventsDatabase.data.data; // an array of 2O events
 	eventsNext = eventsDatabase.data.meta.next; // url of the array of next page of events
