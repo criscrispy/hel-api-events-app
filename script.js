@@ -12,7 +12,9 @@ function setAttributes(element, attributes) {
 
 // Retrieving data for weekly events ...
 async function linkedEvents() {
-	const eventsDatabase = await axios.get('https://api.hel.fi/linkedevents/v1/event/?start=now&end=2020-12-31');
+
+
+	const eventsDatabase = await axios.get('https://api.hel.fi/linkedevents/v1/event/?start=now&end=2021-12-30');
 
 	const eventsMain = eventsDatabase.data.data; // an array of 2O events
 	eventsNext = eventsDatabase.data.meta.next; // url of the array of next page of events
@@ -22,7 +24,11 @@ async function linkedEvents() {
 		const name = info.name.fi;
 		const shortDescriptionFI = info.short_description.fi;
 		const shortDescriptionEN = info.short_description.en;
-		const eventDate = info.start_time;
+
+
+
+		// const eventDate = new Date(info.start_time).toUTCString();
+		const eventDate = new Date(info.start_time).toLocaleString('fi-FI', { timeZone: 'UTC' });
 		const infoURL = info.info_url;
 
 		// ************************************************
@@ -55,8 +61,8 @@ async function linkedEvents() {
 		// ************************************************
 		const cardImg = document.createElement('img');
 		setAttributes(cardImg, {
-			src : imgURL,
-			alt : `event_${index}`
+			src: imgURL,
+			alt: `event_${index}`
 		});
 		cardImg.classList.add('card-img-top');
 
@@ -112,8 +118,8 @@ async function linkedEvents() {
 		moreInfoBtn.classList.add('btn', 'btn-primary');
 		moreInfoBtn.innerText = 'More info';
 		setAttributes(moreInfoBtn, {
-			href   : urlFI,
-			target : '_blank'
+			href: urlFI,
+			target: '_blank'
 		});
 
 		//****************
@@ -151,7 +157,7 @@ loadMoreBtn.innerText = 'Load more';
 loadMoreDiv.append(loadMoreBtn);
 body.append(loadMoreDiv);
 
-loadMoreBtn.addEventListener('click', function() {
+loadMoreBtn.addEventListener('click', function () {
 	console.log(eventsNext); // url for next set of events for current week
 });
 
