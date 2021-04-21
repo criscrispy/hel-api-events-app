@@ -41,7 +41,9 @@ async function linkedEvents() {
 			imgURL = 'https://placekitten.com/400/400';
 		}
 
+		// ************************************************
 		// Handling info_url error
+		// ************************************************
 		let urlFI;
 		if (infoURL) {
 			urlFI = infoURL.fi;
@@ -153,13 +155,16 @@ const loadMoreBtn = document.createElement('a');
 loadMoreBtn.classList.add('btn');
 loadMoreBtn.classList.add('btn-info');
 loadMoreBtn.classList.add('text-center');
+loadMoreBtn.classList.add('disabled');
 loadMoreBtn.innerText = 'Load more';
 loadMoreDiv.append(loadMoreBtn);
 body.append(loadMoreDiv);
-
+/* 
 loadMoreBtn.addEventListener('click', function () {
 	console.log(eventsNext); // url for next set of events for current week
-});
+}); */
+
+// loadMoreBtn.addEventListener('click', linkedEvents, console.log(eventsNext));
 
 // on load
 linkedEvents().catch((error) => {
