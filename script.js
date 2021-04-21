@@ -21,9 +21,9 @@ async function linkedEvents() {
 
 	eventsMain.forEach((info, index) => {
 		const imgArray = info.images;
-		const name = info.name.fi;
-		const shortDescriptionFI = info.short_description.fi;
-		const shortDescriptionEN = info.short_description.en;
+		const name = info.name.fi ? info.name.fi : "";
+		const shortDescriptionFI = info.short_description.fi ? info.short_description.fi : "";
+		const shortDescriptionEN = info.short_description.en ? info.short_description.en : "";
 
 
 
